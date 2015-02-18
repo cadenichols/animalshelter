@@ -2,7 +2,7 @@ extends ../../layouts/master
 block content
   h3= client.name
 
-  form.form-horizontal(method='post', action='/clients')
+  form.form-horizontal(method='post', action='/clients/#{client._id}')
     .form-group
       label.col-sm-2.control-label(for='name') Name
       .col-sm-10
@@ -24,11 +24,11 @@ block content
       .col-sm-10
         .radio
           label
-            input(type='radio', name='gender', value='male', required)
+            input(type='radio', name='gender', value='male', required, checked=client.gender === 'male')
             span Male
         .radio
           label
-            input(type='radio', name='gender', value='female', required)
+            input(type='radio', name='gender', value='female', required, checked=client.gender === 'female')
             span Female
     .form-group
       .col-sm-offset-2.col-sm-10
