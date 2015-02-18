@@ -1,0 +1,20 @@
+extends ../../layouts/master
+block content
+  h3 Animal
+  button.btn.btn-default(type='button', aria-label='Right Align')
+    a(href='/animals/new'): span.glyphicon.glyphicon-heart-empty(aria-hidden='true') &nbsp; New Animal
+
+  #animal
+    .animal
+      a(href='/animals/#{animal._id}'): img.image(src= animal.image)
+      .info
+        .name: a(href='/animals/#{animal._id}')= animal.name
+        .breed= animal.breed
+        .gender= animal.gender
+        .age= animal.age + ' years old.'
+        .adopted= animal.isAdopted
+        .description= animal.description
+  form(method='post', action='/animals/#{animal._id}/delete')
+    button.btn.btn-danger(type='submit') Delete Animal
+  form(method='get', action='/animals/#{animal._id}/edit')
+    button.btn.btn-info(type='submit') Edit Animal

@@ -1,0 +1,18 @@
+extends ../../layouts/master
+block content
+  h3 Client
+  button.btn.btn-default(type='button', aria-label='Right Align')
+    a(href='/clients/new'): span.glyphicon.glyphicon-heart-empty(aria-hidden='true') &nbsp; New Client
+
+  #client
+    .client
+      .info
+        .name: a(href='/clients/#{client._id}')= client.name
+        .address= client.address
+        .phonenumber= client.phonenumber
+        .gender= client.gender
+        .age= client.age + ' years old.'
+  form(method='post', action='/clients/#{client._id}/delete')
+    button.btn.btn-danger(type='submit') Delete Client
+  form(method='get', action='/clients/#{client._id}/edit')
+    button.btn.btn-info(type='submit') Edit Client

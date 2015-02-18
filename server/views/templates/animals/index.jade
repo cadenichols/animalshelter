@@ -1,0 +1,28 @@
+extends ../../layouts/master
+block content
+  h3 Animals
+  button.btn.btn-default(type='button', aria-label='Right Align')
+    a(href='/animals/new'): span.glyphicon.glyphicon-heart-empty(aria-hidden='true') &nbsp; New Animal
+
+  #animals
+    .container
+      .table-responsive
+        table.table
+          thead
+            tr
+              th Picture
+              th Name
+              th Breed
+              th Gender
+              th Age
+              th Description
+          tbody
+            each animal in animals
+              tr
+                td
+                  a(href='/animals/#{animal._id}'): img.image(src= animal.image)
+                td: a(href='/animals/#{animal._id}')= animal.name
+                td= animal.breed
+                td= animal.gender
+                td= animal.age + ' years old.'
+                td= animal.description

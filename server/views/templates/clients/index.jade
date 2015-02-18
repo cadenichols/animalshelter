@@ -1,0 +1,25 @@
+extends ../../layouts/master
+block content
+  h3 Clients
+  button.btn.btn-default(type='button', aria-label='Right Align')
+    a(href='/clients/new'): span.glyphicon.glyphicon-heart-empty(aria-hidden='true') &nbsp; New Client
+
+  #clients
+    .container
+      .table-responsive
+        table.table
+          thead
+            tr
+              th Name
+              th Address
+              th Phone Number
+              th Age
+              th Gender
+          tbody
+            each client in clients
+              tr
+                td: a(href='/clients/#{client._id}')= client.name
+                td= client.address
+                td= client.phonenumber
+                td= client.age + ' years old.'
+                td= client.gender

@@ -1,0 +1,47 @@
+extends ../../layouts/master
+block content
+  h3 New Animal
+  form.form-horizontal(method='post', action='/animals')
+    .form-group
+      label.col-sm-2.control-label(for='name') Name
+      .col-sm-10
+        input#name.form-control(type='text', name='name', placeholder='Name', autofocus=true, required)
+    .form-group
+      label.col-sm-2.control-label(for='image') Image URL
+      .col-sm-10
+        input#image.form-control(type='url', name='image', placeholder='http://', required)
+    .form-group
+      label.col-sm-2.control-label(for='species') 
+      .col-sm-10
+        select#species.form-control(name='species', required) Species
+          option Dog
+          option Cat
+          option Bird
+          option Rodent
+          option Reptile
+    .form-group
+      label.col-sm-2.control-label(for='breed') Breed
+      .col-sm-10
+        input#breed.form-control(type='text', name='breed', placeholder='Breed', required)
+    .form-group
+      label.col-sm-2.control-label(for='age') Age
+      .col-sm-10
+        input#age.form-control(type='number', name='age', placeholder='Age', required)
+    .form-group
+      label.col-sm-2.control-label(for='gender') Gender
+      .col-sm-10
+        .radio
+          label
+            input(type='radio', name='gender', value='male', required)
+            span Male
+        .radio
+          label
+            input(type='radio', name='gender', value='female', required)
+            span Female
+    .form-group
+      label.col-sm-2.control-label(for='description') Description
+      .col-sm-10
+        textarea#description.form-control(type='text', name='description', placeholder='Description', rows='4', required)
+    .form-group
+      .col-sm-offset-2.col-sm-10
+        button.btn.btn-default(type='submit') Submit

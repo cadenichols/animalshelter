@@ -1,0 +1,38 @@
+extends ../../layouts/master
+block content
+  h3 New Client
+  form.form-horizontal(method='post', action='/clients')
+    .form-group
+      label.col-sm-2.control-label(for='name') Name
+      .col-sm-10
+        input#name.form-control(type='text', name='name', placeholder='Name', autofocus=true, required)
+    .form-group
+      label.col-sm-2.control-label(for='address') Address
+      .col-sm-10
+        input#address.form-control(type='text', name='address', placeholder='Address', required)
+    .form-group
+      label.col-sm-2.control-label(for='address') Phone Number
+      .col-sm-10
+        input#address.form-control(type='text', name='address', placeholder='Address', required)
+    .form-group
+      label.col-sm-2.control-label(for='age') Age
+      .col-sm-10
+        input#age.form-control(type='number', name='age', placeholder='Age', required)
+    .form-group
+      label.col-sm-2.control-label(for='gender') Gender
+      .col-sm-10
+        .radio
+          label
+            input(type='radio', name='gender', value='male', required)
+            span Male
+        .radio
+          label
+            input(type='radio', name='gender', value='female', required)
+            span Female
+    .form-group
+      label.col-sm-2.control-label(for='description') Description
+      .col-sm-10
+        textarea#description.form-control(type='text', name='description', placeholder='Description', rows='4', required)
+    .form-group
+      .col-sm-offset-2.col-sm-10
+        button.btn.btn-default(type='submit') Submit
